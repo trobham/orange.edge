@@ -133,7 +133,7 @@ nav a {
     font-weight: 500;
 }
 
-.toggle-btn {
+.toggle-mode {
     cursor: pointer;
     padding: 6px 12px;
     background: var(--primary);
@@ -356,7 +356,7 @@ footer {
         font-size: 1.3rem;
     }
 
-    .toggle-btn {
+    .toggle-mode {
         width: 100%;
         min-height: 44px;
     }
@@ -418,7 +418,7 @@ footer {
 /* Improve touch targets */
 nav a,
 .btn,
-.toggle-btn {
+.toggle-mode {
     min-height: 44px;
     display: inline-flex;
     align-items: center;
@@ -456,7 +456,7 @@ li {
                 <li><a href="#services">Services</a></li>
                 <li><a href="#contact">Contact</a></li>
 				<li><a href="#about">About Us</a></li>
-                <li><button class="toggle-btn" onclick="toggleMode()">Toggle Mode</button></li>
+                <li><button class="toggle-mode" id="toggleMode" onclick="toggleMode()">Toggle Mode</button></li>
             </ul>
         </nav>
     </div>
@@ -584,6 +584,7 @@ function toggleMode() {
     localStorage.setItem("mode",
         document.body.classList.contains("dark") ? "dark" : "light"
     );
+	toggleMenu(); // Hide menu after mode change
 }
 
 if(localStorage.getItem("mode") === "dark") {
